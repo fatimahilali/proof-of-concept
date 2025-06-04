@@ -28,13 +28,24 @@ app.set('views', './views')
 
 
 
+// Homepage route
+app.get('/', async (req, res) => {
+  try {
+    // Haal boeken op
+    const data = await fetch('https://efm-student-case-proxy-api.vercel.app/overview');
+    const boeken = await data.json();
+    
+    // Toon pagina
+    res.render('index.liquid', { boeken });
+    
+  } catch {
+    // Fout
+    res.status(500).send('Fout bij laden');
+  }
+});
 
-
-
-
-
-
-
+  
+  
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
