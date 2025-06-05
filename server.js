@@ -26,7 +26,7 @@ app.set('views', './views')
 // GET routes
 
 
-
+// bron:https://stackabuse.com/get-query-strings-and-parameters-in-express-js/?utm_source=
 
 // Homepage route
 app.get('/', async (req, res) => {
@@ -34,17 +34,23 @@ app.get('/', async (req, res) => {
     // Haal boeken op
     const data = await fetch('https://efm-student-case-proxy-api.vercel.app/overview');
     const boeken = await data.json();
-    
-    // Toon pagina
-    res.render('index.liquid', { boeken });
-    
-  } catch {
-    // Fout
+
+    // Haal filters uit de querystring
+    const filters = {
+      auteur: req.query.auteur || "",
+      jaar: req.query.jaar || "",
+      plaats: req.query.plaats || ""
+    };
+
+    // Rendert de pagina met boeken én de filters
+    res.render('index.liquid', { boeken, filters });
+
+  } catch (error) {
+    console.error('Fout bij ophalen boeken:', error);
     res.status(500).send('Fout bij laden');
   }
 });
 
-  
   
 
 
