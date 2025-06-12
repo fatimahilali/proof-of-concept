@@ -24,6 +24,9 @@ app.engine('liquid', engine.express())
 app.set('views', './views')
 
 // GET routes
+app.get('/', (req, res) => {
+  res.render('index.liquid');
+});
 
 
 
