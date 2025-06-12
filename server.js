@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
 
 
 
-  
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
