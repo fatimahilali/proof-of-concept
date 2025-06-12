@@ -1,10 +1,17 @@
+
+<!-- bronnen: -->
+<!-- Liquid `escape` filter: https://shopify.github.io/liquid/filters/escape/ -->
+<!-- Liquid issue  https://github.com/Shopify/liquid/issues/223 -->
+
+
+
 <!-- Header -->
 <header class="header">
   <h1 class="visually-hidden">Embassy of the Free Mind</h1>
-
+ 
   <!-- Achtergrondafbeelding -->
   <img
-    src="/assets/images/small.png"
+    src="/assets/images/art.png"
     alt="Decoratieve achtergrondafbeelding"
     class="background-image">
 
@@ -64,88 +71,154 @@
     </form>
   </section>
 
-  <!-- Filters -->
+
+<!-- Filters -->
 <section class="filters">
-  <h3 class="visually-hidden">Filters voor het verfijnen van resultaten</h3>
+  <h3 class="visually-hidden">Filters voor resultaten</h3>
 
   <div class="filter-bar">
     <ul class="hList">
 
-      <!-- Auteur filter -->
       {% if filters.auteur == blank %}
-        <li class="menu">
-          <button type="button" class="menu-title">
-            Auteur
-            <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
-            </svg>
-          </button>
+        <!-- Groepeert alle filteropties voor auteur voor screenreaders -->
+        <fieldset>
+          <legend class="visually-hidden">Filter op auteur</legend>
 
-          <ul class="menu-dropdown">
-            {% for auteur in auteurs %}
-              <li>
-                <form method="get" action="/">
-                  <input type="hidden" name="auteur" value="{{ auteur | escape }}">
-                  <input type="hidden" name="jaar" value="{{ filters.jaar | default: '' | escape }}">
-                  <input type="hidden" name="plaats" value="{{ filters.plaats | default: '' | escape }}">
-                  <button type="submit" class="filter-option">{{ auteur | escape }}</button>
-                </form>
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
+          <li class="menu">
+            <!-- Dropdown  voor filter Auteur -->
+            <button type="button" class="menu-title">
+              Auteur
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
+              </svg>
+            </button>
+
+            <!-- Lijst met auteurs als filteropties -->
+            <ul class="menu-dropdown">
+              {% for auteur in auteurs %}
+                <li>
+                  <form method="get" action="/">
+                    <input type="hidden" name="auteur" value="{{ auteur | escape }}">
+                    <input type="hidden" name="jaar" value="{{ filters.jaar | default: '' | escape }}">
+                    <input type="hidden" name="plaats" value="{{ filters.plaats | default: '' | escape }}">
+                    <button type="submit" class="filter-option">{{ auteur | escape }}</button>
+                  </form>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </fieldset>
       {% endif %}
 
-      <!-- Plaats filter -->
+
       {% if filters.plaats == blank %}
-        <li class="menu">
-          <button type="button" class="menu-title">
-            Plaats
-            <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
-            </svg>
-          </button>
+        <!-- Groepeert alle filteropties voor plaats voor screenreaders -->
+        <fieldset>
+          <legend class="visually-hidden">Filter op plaats</legend>
 
-          <ul class="menu-dropdown">
-            {% for plaats in plaatsen %}
-              <li>
-                <form method="get" action="/">
-                  <input type="hidden" name="plaats" value="{{ plaats | escape }}">
-                  <input type="hidden" name="jaar" value="{{ filters.jaar | default: '' | escape }}">
-                  <input type="hidden" name="auteur" value="{{ filters.auteur | default: '' | escape }}">
-                  <button type="submit" class="filter-option">{{ plaats | escape }}</button>
-                </form>
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
+          <li class="menu">
+            <!-- Dropdown  voor filter Plaats -->
+            <button type="button" class="menu-title">
+              Plaats
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
+              </svg>
+            </button>
+
+            <!-- Lijst met plaatsen als filteropties -->
+            <ul class="menu-dropdown">
+              {% for plaats in plaatsen %}
+                <li>
+                  <form method="get" action="/">
+                    <input type="hidden" name="plaats" value="{{ plaats | escape }}">
+                    <input type="hidden" name="jaar" value="{{ filters.jaar | default: '' | escape }}">
+                    <input type="hidden" name="auteur" value="{{ filters.auteur | default: '' | escape }}">
+                    <button type="submit" class="filter-option">{{ plaats | escape }}</button>
+                  </form>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </fieldset>
       {% endif %}
 
-      <!-- Jaar filter -->
       {% if filters.jaar == blank %}
-        <li class="menu">
-          <button type="button" class="menu-title">
-            Jaar
-            <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
-            </svg>
-          </button>
+        <!-- Groepeert alle filteropties voor jaar voor screenreaders -->
+        <fieldset>
+          <legend class="visually-hidden">Filter op jaar</legend>
 
-          <ul class="menu-dropdown">
-            {% for jaar in jaren %}
-              <li>
-                <form method="get" action="/">
-                  <input type="hidden" name="jaar" value="{{ jaar | escape }}">
-                  <input type="hidden" name="auteur" value="{{ filters.auteur | default: '' | escape }}">
-                  <input type="hidden" name="plaats" value="{{ filters.plaats | default: '' | escape }}">
-                  <button type="submit" class="filter-option">{{ jaar | escape }}</button>
-                </form>
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
+          <li class="menu">
+            <!-- Dropdown  voor filter Jaar -->
+            <button type="button" class="menu-title">
+              Jaar
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
+              </svg>
+            </button>
+
+            <!-- Lijst met jaren als filteropties -->
+            <ul class="menu-dropdown">
+              {% for jaar in jaren %}
+                <li>
+                  <form method="get" action="/">
+                    <input type="hidden" name="jaar" value="{{ jaar | escape }}">
+                    <input type="hidden" name="auteur" value="{{ filters.auteur | default: '' | escape }}">
+                    <input type="hidden" name="plaats" value="{{ filters.plaats | default: '' | escape }}">
+                    <button type="submit" class="filter-option">{{ jaar | escape }}</button>
+                  </form>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </fieldset>
       {% endif %}
 
     </ul>
   </div>
 </section>
+
+
+  <!-- Actieve filters -->
+
+  <!-- Toont de actieve filters als de gebruiker iets heeft geselecteerd -->
+  {% if filters.auteur != blank or filters.plaats != blank or filters.jaar != blank %}
+    <section class="active-filters">
+      <h4 class="visually-hidden">Actieve filters</h4>
+
+      <!-- Auteur filter zichtbaar maken met knop om te verwijderen -->
+      {% if filters.auteur != blank %}
+        <a
+          href="?plaats={{ filters.plaats | escape }}&jaar={{ filters.jaar | escape }}"
+          class="filter-chip"
+          title="Verwijder auteur filter">
+          {{ filters.auteur | escape }}
+          <span class="remove">×</span>
+        </a>
+      {% endif %}
+
+      <!-- Plaats filter zichtbaar maken met knop om te verwijderen -->
+      {% if filters.plaats != blank %}
+        <a
+          href="?auteur={{ filters.auteur | escape }}&jaar={{ filters.jaar | escape }}"
+          class="filter-chip"
+          title="Verwijder plaats filter">
+          {{ filters.plaats | escape }}
+          <span class="remove">×</span>
+        </a>
+      {% endif %}
+
+      <!-- Jaar filter zichtbaar maken met knop om te verwijderen -->
+      {% if filters.jaar != blank %}
+        <a
+          href="?auteur={{ filters.auteur | escape }}&plaats={{ filters.plaats | escape }}"
+          class="filter-chip"
+          title="Verwijder jaar filter">
+          {{ filters.jaar | escape }}
+          <span class="remove">×</span>
+        </a>
+      {% endif %}
+
+    </section>
+  {% endif %}
+
+
