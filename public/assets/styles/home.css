@@ -1,3 +1,6 @@
+/*  https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within*/
+
+
 * {
     margin: 0;
     padding: 0;
@@ -91,5 +94,84 @@ nav {
   margin-top: 2%;
 }
   
+
+/* Zoekbalk sectie  */
+.search-bar {
+  background-color: var(--white);
+  padding: 0.8rem var(--space-base);
+  max-width: 90%;
+  margin: var(--space-xl) auto var(--space-base) auto;
+  border-radius: var(--radius-lg);
+  border: 0.0625rem solid var(--gray);
+  box-shadow: 0 0.25rem var(--space-base) rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Als de gebruiker in het vak klikt, krijgt het een lichte grijze rand */
+.search-bar:focus-within {
+  border-color: var(--gray-medium);
+  box-shadow: none;
+}
+
+.search-bar form {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Zoek input veld */
+.search-bar input[type="search"] {
+  flex: 1;
+  min-width: 12.5rem;
+  padding: 0.6rem 0.8rem;
+  font-size: var(--font-md);
+  border: 0.0625rem solid var(--gray-border);
+  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+
+/* Als de gebruiker in het zoekveld klikt */
+.search-bar input[type="search"]:focus {
+  border-color: #999;
+  box-shadow: 0 0 0.1875rem rgba(0, 38, 77, 0.2);
+}
+
+/* Stijl van de tekst die in het veld staat vóór typen */
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Zoek button */
+.search-bar button {
+  padding: 0.6rem var(--space-base);
+  background-color: var(--primary-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  font-size: var(--font-md);
+  cursor: pointer;
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: var(--accent);
+  transform: scale(1.01);/* Iets groter */
+}
+
+.search-bar button:active {
+  transform: translate(0);
+  box-shadow: none;/* Terug naar originele plek */
+}
 
 
