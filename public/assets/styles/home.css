@@ -99,6 +99,8 @@ nav {
 }
   
 
+
+  
 /* Zoekbalk sectie  */
 .search-bar {
   background-color: var(--white);
@@ -192,12 +194,15 @@ nav {
   /* Individuele filter menu items */
   .menu {
     position: relative;
+    
   }
+  
   
   /* Filter dropdown button */
   .menu-title {
-    width: 100%;
+    width: 90%;
     height: 2.75rem;
+    margin-left: var(--space-base);
     padding: 0 var(--space-sm);
     font-size: var(--font-lg);
     border-radius: var(--radius-sm);
@@ -362,7 +367,7 @@ nav {
   }
   
   .boek-titels h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-primary);
     font-size: var(--font-2xl);
     color: var(--text);
     text-align: center;
@@ -385,3 +390,50 @@ nav {
   }
 
 
+
+/* Tabel header styling */
+.titel-tabel thead {
+    background-color: var(--bg-table-header);
+  }
+  
+  .titel-tabel thead th {
+    font-family: var(--font-primary);
+    font-size: var(--font-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.0375rem;
+    color: var(--text-table);
+    font-weight: var(--font-semibold);
+    padding: 0.8rem var(--space-base);
+    text-align: left;
+    background-color: var(--bg-table-header);
+    border-bottom: 0.0625rem solid var(--gray-table);
+  }
+  
+  .titel-tabel thead th:first-child {
+    border-top-left-radius: var(--radius-md);
+  }
+  
+  .titel-tabel thead th:last-child {
+    border-top-right-radius: var(--radius-md);
+  }
+  
+  /* Tabel cel styling */
+  .titel-tabel td {
+    background-color: var(--white);
+    padding: 0.6rem var(--space-base);
+    font-size: var(--font-xs);
+    border-bottom: 0.0625rem solid var(--gray-table);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    line-height: var(--leading-normal);
+  }
+  
+  /*  streep voor tabel rijen */
+  .titel-tabel tbody tr:nth-child(even) td {
+    background-color: var(--gray-light);
+  }
+  
+  /* Hover effect voor tabel rijen */
+  .titel-tabel tr:hover td {
+    background-color: var(--bg-table-hover);
+  }
