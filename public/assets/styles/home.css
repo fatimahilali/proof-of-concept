@@ -1,10 +1,11 @@
 /*  Bronnen:*/
 /*  https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within*/
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator */
+/*  https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator */
 /*  vorige project menu code */
+/*  https://developer.mozilla.org/en-US/docs/Web/CSS/all? */
 
 
-* {
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -270,4 +271,74 @@ nav {
     color: #001d3d;
     transform: scale(1.03) translateY(-0.0625rem);
   }
+  
+
+/* Verwijder standaardstijl zodat custom styling mogelijk is */
+.filter-option {
+    all: unset;
+  }
+  
+  /*  Active filters sectie  */
+  .active-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--space-sm);
+    margin: var(--space-xl) auto var(--space-base) auto;
+    max-width: 75rem;
+    padding: 0 var(--space-base);
+  }
+  
+
+  /* Individuele filter chips */
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-dark);
+    color: var(--white);
+    padding: var(--space-xs) var(--space-base);
+    font-size: var(--font-sm);
+    border-radius: 0.3125rem;
+    font-weight: var(--font-medium);
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+  }
+  
+
+  .filter-chip:hover {
+    background-color: var(--accent);
+    transform: scale(1.05);
+  }
+  
+  /* X button om filter te verwijderen */
+  .filter-chip .remove {
+    margin-left: var(--space-sm);
+    font-weight: var(--font-bold);
+    font-size: var(--font-xl);
+    cursor: pointer;
+    color: var(--white);
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .filter-chip:hover .remove {
+    color: #ffdddd;
+  }
+  
+  /* Resultaten teller sectie  */
+  .results-count {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+    gap: 0.6rem;
+    max-width: 75rem;
+    margin: var(--space-xl) 0 var(--space-xs) var(--space-base); 
+    padding-left: var(--space-base);
+    border-bottom: 0.0625rem solid var(--gray);
+    font-size: var(--font-lg);
+    font-weight: var(--font-medium);
+    color: var(--gray-dark);
+    font-family: var(--font-primary);
+  }
+  
   
