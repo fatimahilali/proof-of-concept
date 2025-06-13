@@ -1,0 +1,67 @@
+/* CSS VARIABLES */
+
+body {
+  /* Colors */
+  --primary: #002F5F;
+  --primary-light: #004080;
+  --primary-dark: #00264d;
+  --accent: #004b99;
+  
+  --white: #ffffff;
+  --gray-light: #f5f8fb;
+  --gray: #e2e8f0;
+  --gray-medium: #cbd5e1;
+  --gray-dark: #475569;
+  --gray-border: #ddd;
+  --gray-table: #dce5ec;
+  
+  --text: #1f2937;
+  --text-medium: #2c3e50;
+  --text-muted: #6b7280;
+  --text-table: #002b45;
+  
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-blur: rgba(255, 255, 255, 0.2);
+  --bg-dropdown: rgba(255, 255, 255, 0.85);
+  --bg-overlay: rgba(41, 115, 179, 0.08);
+  --bg-table-header: #e7edf3;
+  --bg-table-hover: #dbe8ef;
+  --bg-hover: #E6EEF7;
+  
+
+  /* Font weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Font sizes */
+  --font-xs: 0.8rem;
+  --font-sm: 0.875rem;
+  --font-md: 0.9rem;
+  --font-lg: 0.95rem;
+  --font-xl: 1rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 2rem;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-base: 1rem;
+  --space-lg: 1.25rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+  
+  /* Border radius */
+  --radius-xs: 0.3rem;
+  --radius-sm: 0.375rem;
+  --radius-base: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  
+  /* Line height */
+  --leading-normal: 1.6;
+}
+
+
