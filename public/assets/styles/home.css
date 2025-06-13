@@ -19,3 +19,24 @@
   }
   
 
+/* Overlay over de header */
+.header-overlay {
+    position: relative;
+    width: 100%;
+    max-width: 70rem;  
+    margin: -2.5rem auto 0 auto;
+    height: 11.25rem;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(0.625rem);
+    -webkit-backdrop-filter: blur(0.625rem);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.03);
+  }
+  
+  /* Fallback voor systemen zonder webkit backdrop-filter */
+  @supports not (-webkit-backdrop-filter: blur(0.625rem)) {
+    .header-overlay {
+      background: var(--bg-overlay-fallback);
+    }
+  }
+  
