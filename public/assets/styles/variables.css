@@ -53,6 +53,11 @@ body {
   --font-xl: 1rem;
   --font-2xl: 1.5rem;
   --font-3xl: 2rem;
+
+    /* Font */
+
+  --font-primary: 'Roboto', sans-serif;
+
   
   /* Spacing */
   --space-xs: 0.5rem;

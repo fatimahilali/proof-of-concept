@@ -179,7 +179,7 @@ nav {
 
 
 
-/* Horizontale lijst voor filters */
+/*  lijst voor filters */
 .hList {
     display: flex;
     flex-direction: column;
@@ -304,7 +304,6 @@ nav {
     text-decoration: none;
   }
   
-
   .filter-chip:hover {
     background-color: var(--accent);
     transform: scale(1.05);
@@ -341,4 +340,48 @@ nav {
     font-family: var(--font-primary);
   }
   
+
+/* Boek icoon  */
+.resultaten-icoon {
+    width: 2.8125rem;
+    height: auto;
+    opacity: 0.85;
+    transform-origin: center;
+  }
   
+  
+  /* Boek resulaten  */
+  .boek-titels {
+    margin: var(--space-2xl) auto;
+    max-width: 75rem;
+    background: var(--white);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 0.25rem var(--space-sm) rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+  }
+  
+  .boek-titels h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-2xl);
+    color: var(--text);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+  
+  /*  Tabel styling  */
+  .titel-tabel {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: var(--font-primary);
+    font-size: var(--font-sm);
+    color: var(--text);
+    background-color: var(--white);
+    border: 0.0625rem solid var(--gray-table);
+    border-radius: var(--radius-md);
+    box-shadow: 0 0.25rem var(--space-base) rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+
+
