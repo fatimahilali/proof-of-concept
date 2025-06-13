@@ -1,4 +1,7 @@
+/*  Bronnen:*/
 /*  https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within*/
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator */
+/*  vorige project menu code */
 
 
 * {
@@ -112,7 +115,6 @@ nav {
   z-index: 2;
 }
 
-
 /* Als de gebruiker in het vak klikt, krijgt het een lichte grijze rand */
 .search-bar:focus-within {
   border-color: var(--gray-medium);
@@ -175,3 +177,97 @@ nav {
 }
 
 
+
+/* Horizontale lijst voor filters */
+.hList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-base);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  /* Individuele filter menu items */
+  .menu {
+    position: relative;
+  }
+  
+  /* Filter dropdown button */
+  .menu-title {
+    width: 100%;
+    height: 2.75rem;
+    padding: 0 var(--space-sm);
+    font-size: var(--font-lg);
+    border-radius: var(--radius-sm);
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    box-shadow: 0 0.125rem var(--space-xs) rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-title:hover,
+  .menu-title:focus {
+    background-color: var(--primary-light);
+  }
+  
+  .menu-title svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: var(--white);
+    flex-shrink: 0;
+  }
+  
+  /* Dropdown menu styling  */
+  .menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-dropdown);
+    backdrop-filter: blur(var(--space-sm));
+    -webkit-backdrop-filter: blur(var(--space-sm));
+    padding: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.625rem) scale(0.98);
+    transition: opacity 0.3s ease, transform 0.4s ease;
+    border-radius: 0.875rem;
+    box-shadow: 0 var(--space-base) 1.875rem rgba(0, 0, 0, 0.08);
+    z-index: 10;
+  }
+  
+  /* Laat child dropdown zien bij hover of focus */
+  .menu:hover > .menu-dropdown,
+  .menu:focus-within > .menu-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  
+  .menu-dropdown li {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.625rem 0.875rem;
+    font-size: var(--font-sm);
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--primary);
+    box-shadow: 0 0 0 0.0625rem #e0e0e0 inset;
+    list-style: none;
+  }
+  
+  .menu-dropdown li:hover {
+    background: var(--bg-hover);
+    color: #001d3d;
+    transform: scale(1.03) translateY(-0.0625rem);
+  }
+  
