@@ -3,6 +3,7 @@
 /*  https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator */
 /*  vorige project menu code */
 /*  https://developer.mozilla.org/en-US/docs/Web/CSS/all? */
+/*  Svg filter-chip button van old project*/
 
 
 * { 
@@ -435,47 +436,64 @@ nav {
   /*  Active filters sectie  */
   .active-filters {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0, max-content));
     gap: var(--space-sm);
     margin: var(--space-xl) auto var(--space-base) auto;
     max-width: 75rem;
     padding: 0 var(--space-base);
   }
   
-
+  
   /* Individuele filter chips */
-  .filter-chip {
-    display: inline-flex;
-    align-items: center;
-    background: var(--primary-dark);
-    color: var(--white);
-    padding: var(--space-xs) var(--space-base);
-    font-size: var(--font-sm);
-    border-radius: 0.3125rem;
-    font-weight: var(--font-medium);
-    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08);
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-  }
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 0.35rem 0.75rem;
+  font-size: var(--font-xs);
+  border-radius: var(--radius-base);
+  font-weight: var(--font-medium);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08);
+  max-width: 16rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
   
-  .filter-chip:hover {
-    background-color: var(--accent);
-    transform: scale(1.05);
-  }
+.filter-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.remove-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
   
-  /* X button om filter te verwijderen */
-  .filter-chip .remove {
-    margin-left: var(--space-sm);
-    font-weight: var(--font-bold);
-    font-size: var(--font-xl);
-    cursor: pointer;
-    color: var(--white);
-    transition: color 0.2s ease-in-out;
-  }
-  
-  .filter-chip:hover .remove {
-    color: #ffdddd;
-  }
+
+.remove-icon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: var(--white);
+  display: block;
+}
+
+.remove-icon:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
   
  /* Results header met view controls  */
 .results-header {

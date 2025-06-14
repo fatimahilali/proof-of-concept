@@ -1,7 +1,9 @@
+
 <!-- bronnen: -->
 <!-- Liquid `escape` filter: https://shopify.github.io/liquid/filters/escape/ -->
 <!-- Liquid issue  https://github.com/Shopify/liquid/issues/223 -->
 <!-- Accessibility (scope in tabellen): https://webaim.org/techniques/tables/data#scope -->
+
 
 
 
@@ -10,8 +12,9 @@
 
 
 <!-- Header -->
-  <header class="header"> <h1 class="visually-hidden">Embassy of the Free Mind</h1>
-
+<header class="header">
+  <h1 class="visually-hidden">Embassy of the Free Mind</h1>
+ 
   <!-- Achtergrondafbeelding -->
   <img
     src="/assets/images/art.png"
@@ -75,303 +78,269 @@
   </section>
 
 
-  <!-- Filters -->
-  <section class="filters">
-    <h3 class="visually-hidden">Filters voor resultaten</h3>
+<!-- Filters -->
+<section class="filters">
+  <h3 class="visually-hidden">Filters voor resultaten</h3>
 
-    <div class="filter-bar">
-      <ul class="hList">
+  <div class="filter-bar">
+    <ul class="hList">
 
-        {% if filters.auteur == blank %}
-          <!-- Groepeert alle filteropties voor auteur voor screenreaders -->
-          <fieldset>
-            <legend class="visually-hidden">Filter op auteur</legend>
+      {% if filters.auteur == blank %}
+        <!-- Groepeert alle filteropties voor auteur voor screenreaders -->
+        <fieldset>
+          <legend class="visually-hidden">Filter op auteur</legend>
 
-            <li class="menu">
-              <!-- Dropdown  voor filter Auteur -->
-              <button type="button" class="menu-title">
-                Auteur
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  width="20"
-                  height="20"
-                  style="margin-left: 8px;">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z"
-                    fill="#000000" />
-                </svg>
-              </button>
+          <li class="menu">
+            <!-- Dropdown  voor filter Auteur -->
+            <button type="button" class="menu-title">
+              Auteur
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
+              </svg>
+            </button>
 
-              <!-- Lijst met auteurs als filteropties -->
-              <ul class="menu-dropdown">
-                {% for auteur in auteurs %}
-                  <li>
-                    <form method="get" action="/">
-                      <input
-                        type="hidden"
-                        name="auteur"
-                        value="{{ auteur | escape }}">
-                      <input
-                        type="hidden"
-                        name="jaar"
-                        value="{{ filters.jaar | default: '' | escape }}">
-                      <input
-                        type="hidden"
-                        name="plaats"
-                        value="{{ filters.plaats | default: '' | escape }}">
-                      <button type="submit" class="filter-option">{{ auteur | escape }}</button>
-                    </form>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-          </fieldset>
-        {% endif %}
+            <!-- Lijst met auteurs als filteropties -->
+            <ul class="menu-dropdown">
+              {% for auteur in auteurs %}
+                <li>
+                  <form method="get" action="/">
+                    <input type="hidden" name="auteur" value="{{ auteur | escape }}">
+                    <input type="hidden" name="jaar" value="{{ filters.jaar | default: '' | escape }}">
+                    <input type="hidden" name="plaats" value="{{ filters.plaats | default: '' | escape }}">
+                    <button type="submit" class="filter-option">{{ auteur | escape }}</button>
+                  </form>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </fieldset>
+      {% endif %}
 
 
-        {% if filters.plaats == blank %}
-          <!-- Groepeert alle filteropties voor plaats voor screenreaders -->
-          <fieldset>
-            <legend class="visually-hidden">Filter op plaats</legend>
+      {% if filters.plaats == blank %}
+        <!-- Groepeert alle filteropties voor plaats voor screenreaders -->
+        <fieldset>
+          <legend class="visually-hidden">Filter op plaats</legend>
 
-            <li class="menu">
-              <!-- Dropdown  voor filter Plaats -->
-              <button type="button" class="menu-title">
-                Plaats
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  width="20"
-                  height="20"
-                  style="margin-left: 8px;">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z"
-                    fill="#000000" />
-                </svg>
-              </button>
+          <li class="menu">
+            <!-- Dropdown  voor filter Plaats -->
+            <button type="button" class="menu-title">
+              Plaats
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
+              </svg>
+            </button>
 
-              <!-- Lijst met plaatsen als filteropties -->
-              <ul class="menu-dropdown">
-                {% for plaats in plaatsen %}
-                  <li>
-                    <form method="get" action="/">
-                      <input
-                        type="hidden"
-                        name="plaats"
-                        value="{{ plaats | escape }}">
-                      <input
-                        type="hidden"
-                        name="jaar"
-                        value="{{ filters.jaar | default: '' | escape }}">
-                      <input
-                        type="hidden"
-                        name="auteur"
-                        value="{{ filters.auteur | default: '' | escape }}">
-                      <button type="submit" class="filter-option">{{ plaats | escape }}</button>
-                    </form>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-          </fieldset>
-        {% endif %}
+            <!-- Lijst met plaatsen als filteropties -->
+            <ul class="menu-dropdown">
+              {% for plaats in plaatsen %}
+                <li>
+                  <form method="get" action="/">
+                    <input type="hidden" name="plaats" value="{{ plaats | escape }}">
+                    <input type="hidden" name="jaar" value="{{ filters.jaar | default: '' | escape }}">
+                    <input type="hidden" name="auteur" value="{{ filters.auteur | default: '' | escape }}">
+                    <button type="submit" class="filter-option">{{ plaats | escape }}</button>
+                  </form>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </fieldset>
+      {% endif %}
 
-        {% if filters.jaar == blank %}
-          <!-- Groepeert alle filteropties voor jaar voor screenreaders -->
-          <fieldset>
-            <legend class="visually-hidden">Filter op jaar</legend>
+      {% if filters.jaar == blank %}
+        <!-- Groepeert alle filteropties voor jaar voor screenreaders -->
+        <fieldset>
+          <legend class="visually-hidden">Filter op jaar</legend>
 
-            <li class="menu">
-              <!-- Dropdown  voor filter Jaar -->
-              <button type="button" class="menu-title">
-                Jaar
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  width="20"
-                  height="20"
-                  style="margin-left: 8px;">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z"
-                    fill="#000000" />
-                </svg>
-              </button>
+          <li class="menu">
+            <!-- Dropdown  voor filter Jaar -->
+            <button type="button" class="menu-title">
+              Jaar
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20" style="margin-left: 8px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8.5C6.6 8.5 6.2 8.7 6.1 9.1C5.9 9.5 6 9.9 6.3 10.2L11.3 15.2C11.7 15.6 12.3 15.6 12.7 15.2L17.7 10.2C18 9.9 18.1 9.5 17.9 9.1C17.8 8.7 17.4 8.5 17 8.5H7Z" fill="#000000" />
+              </svg>
+            </button>
 
-              <!-- Lijst met jaren als filteropties -->
-              <ul class="menu-dropdown">
-                {% for jaar in jaren %}
-                  <li>
-                    <form method="get" action="/">
-                      <input
-                        type="hidden"
-                        name="jaar"
-                        value="{{ jaar | escape }}">
-                      <input
-                        type="hidden"
-                        name="auteur"
-                        value="{{ filters.auteur | default: '' | escape }}">
-                      <input
-                        type="hidden"
-                        name="plaats"
-                        value="{{ filters.plaats | default: '' | escape }}">
-                      <button type="submit" class="filter-option">{{ jaar | escape }}</button>
-                    </form>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-          </fieldset>
-        {% endif %}
+            <!-- Lijst met jaren als filteropties -->
+            <ul class="menu-dropdown">
+              {% for jaar in jaren %}
+                <li>
+                  <form method="get" action="/">
+                    <input type="hidden" name="jaar" value="{{ jaar | escape }}">
+                    <input type="hidden" name="auteur" value="{{ filters.auteur | default: '' | escape }}">
+                    <input type="hidden" name="plaats" value="{{ filters.plaats | default: '' | escape }}">
+                    <button type="submit" class="filter-option">{{ jaar | escape }}</button>
+                  </form>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </fieldset>
+      {% endif %}
 
-      </ul>
-    </div>
-  </section>
+    </ul>
+  </div>
+</section>
 
 
-  <!-- Actieve filters -->
 
   <!-- Toont de actieve filters als de gebruiker iets heeft geselecteerd -->
   {% if filters.auteur != blank or filters.plaats != blank or filters.jaar != blank %}
-    <section class="active-filters">
-      <h4 class="visually-hidden">Actieve filters</h4>
+  <section class="active-filters">
+    <h4 class="visually-hidden">Actieve filters</h4>
 
-      <!-- Auteur filter zichtbaar maken met knop om te verwijderen -->
-      {% if filters.auteur != blank %}
+    <!-- Auteur filter -->
+    {% if filters.auteur != blank %}
+      <div class="filter-chip" title="Verwijder auteur filter">
+        <span>{{ filters.auteur | escape }}</span>
         <a
           href="?plaats={{ filters.plaats | escape }}&jaar={{ filters.jaar | escape }}"
-          class="filter-chip"
+          class="remove-icon"
           title="Verwijder auteur filter">
-          {{ filters.auteur | escape }}
-          <span class="remove">×</span>
+          <svg
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+          </svg>
         </a>
-      {% endif %}
+      </div>
+    {% endif %}
 
-      <!-- Plaats filter zichtbaar maken met knop om te verwijderen -->
-      {% if filters.plaats != blank %}
+    <!-- Plaats filter -->
+    {% if filters.plaats != blank %}
+      <div class="filter-chip" title="Verwijder plaats filter">
+        <span>{{ filters.plaats | escape }}</span>
         <a
           href="?auteur={{ filters.auteur | escape }}&jaar={{ filters.jaar | escape }}"
-          class="filter-chip"
+          class="remove-icon"
           title="Verwijder plaats filter">
-          {{ filters.plaats | escape }}
-          <span class="remove">×</span>
+          <svg
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+          </svg>
         </a>
-      {% endif %}
+      </div>
+    {% endif %}
 
-      <!-- Jaar filter zichtbaar maken met knop om te verwijderen -->
-      {% if filters.jaar != blank %}
+    <!-- Jaar filter -->
+    {% if filters.jaar != blank %}
+      <div class="filter-chip" title="Verwijder jaar filter">
+        <span>{{ filters.jaar | escape }}</span>
         <a
           href="?auteur={{ filters.auteur | escape }}&plaats={{ filters.plaats | escape }}"
-          class="filter-chip"
+          class="remove-icon"
           title="Verwijder jaar filter">
-          {{ filters.jaar | escape }}
-          <span class="remove">×</span>
+          <svg
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+          </svg>
         </a>
-      {% endif %}
-
-    </section>
-  {% endif %}
-
-
-  <!-- Resultaatteller met view controls -->
-  <div class="results-header">
-    <div class="results-count">
-      <img
-        src="/assets/images/book-icon.png"
-        alt="Boek icoon"
-        class="resultaten-icoon">
-      <p>Toont {{ gefilterdAantal }} van {{ totaalAantal }} boeken</p>
-    </div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}
 
 
-    <!-- View-switching iconen -->
-    <div class="view-controls">
-      <!-- Lijstweergave -->
-      <button
-        class="view-button"
-        type="button"
-        title="Lijstweergave">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 6h2v2H3V6zm4 0h14v2H7V6zm-4 5h2v2H3v-2zm4 0h14v2H7v-2zm-4 5h2v2H3v-2zm4 0h14v2H7v-2z" />
-        </svg>
-      </button>
 
-      <!-- Rasterweergave -->
-      <button
-        class="view-button"
-        type="button"
-        title="Rasterweergave">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
-        </svg>
-      </button>
-
-      <!-- Tabelweergave (actief) -->
-      <button
-        class="view-button active"
-        type="button"
-        title="Tabelweergave">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
-        </svg>
-      </button>
-    </div>
+<!-- Resultaatteller met view controls -->
+<div class="results-header">
+  <div class="results-count">
+    <img
+      src="/assets/images/book-icon.png"
+      alt="Boek icoon"
+      class="resultaten-icoon">
+    <p>Toont {{ gefilterdAantal }} van {{ totaalAantal }} boeken</p>
   </div>
+
+
+  <!-- View-switching iconen -->
+  <div class="view-controls">
+    <!-- Lijstweergave -->
+    <button
+      class="view-button"
+      type="button"
+      title="Lijstweergave">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 6h2v2H3V6zm4 0h14v2H7V6zm-4 5h2v2H3v-2zm4 0h14v2H7v-2zm-4 5h2v2H3v-2zm4 0h14v2H7v-2z" />
+      </svg>
+    </button>
+
+    <!-- Rasterweergave -->
+    <button
+      class="view-button"
+      type="button"
+      title="Rasterweergave">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
+      </svg>
+    </button>
+
+    <!-- Tabelweergave (actief) -->
+    <button
+      class="view-button active"
+      type="button"
+      title="Tabelweergave">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+      </svg>
+    </button>
+  </div>
+</div>
 
 
 
   <!-- Boekresultaten -->
-  <section class="boek-titels">
-    <!-- Titel alleen zichtbaar voor schermlezers -->
-    <h5 class="visually-hidden">Gevonden boektitels</h5>
+<section class="boek-titels">
+  <!-- Titel alleen zichtbaar voor schermlezers -->
+  <h5 class="visually-hidden">Gevonden boektitels</h5>
 
-    <div>
-      <table class="titel-tabel">
-        <!-- Extra uitleg voor schermlezers -->
-        <caption class="visually-hidden">
-          Overzicht van {{ boeken.size }} boeken uit de collectie
-        </caption>
+  <div>
+    <table class="titel-tabel">
+      <!-- Extra uitleg voor schermlezers -->
+      <caption class="visually-hidden">
+        Overzicht van {{ boeken.size }} boeken uit de collectie
+      </caption>
 
-        <!-- Tabelkop met kolomnamen -->
-        <thead>
-          <tr>
-            <th scope="col">Titel</th>
-            <th scope="col">Auteur</th>
-            <th scope="col">Jaar</th>
-            <th scope="col">Plaats</th>
-          </tr>
-        </thead>
+      <!-- Tabelkop met kolomnamen -->
+      <thead>
+        <tr>
+          <th scope="col">Titel</th>
+          <th scope="col">Auteur</th>
+          <th scope="col">Jaar</th>
+          <th scope="col">Plaats</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          <!-- Check of er boeken zijn -->
-          {% if boeken.size > 0 %}
-            <!-- Loop door elk boek -->
-            {% for boek in boeken %}
-              <tr>
-                <!-- Toon titel van boek -->
-                <td>{{ boek.titel | default: "" | escape }}</td>
-                <!-- Toon auteur van boek -->
-                <td>{{ boek.auteur | default: "" | escape }}</td>
-                <!-- Toon jaar van uitgave -->
-                <td>{{ boek.jaar | default: "" | escape }}</td>
-                <!-- Toon plaats van uitgave -->
-                <td>{{ boek.plaats | default: "" | escape }}</td>
-              </tr>
-            {% endfor %}
-          {% else %}
-            <!-- Als er geen boeken zijn gevonden -->
+      <tbody>
+        <!-- Check of er boeken zijn -->
+        {% if boeken.size > 0 %}
+          <!-- Loop door elk boek -->
+          {% for boek in boeken %}
             <tr>
-              <td colspan="4">Geen resultaten gevonden voor de huidige filters.</td>
+              <!-- Toon titel van boek -->
+              <td>{{ boek.titel | default: "" | escape }}</td>
+              <!-- Toon auteur van boek -->
+              <td>{{ boek.auteur | default: "" | escape }}</td>
+              <!-- Toon jaar van uitgave -->
+              <td>{{ boek.jaar | default: "" | escape }}</td>
+              <!-- Toon plaats van uitgave -->
+              <td>{{ boek.plaats | default: "" | escape }}</td>
             </tr>
-          {% endif %}
-        </tbody>
-      </table>
-    </div>
-  </section>
+          {% endfor %}
+        {% else %}
+          <!-- Als er geen boeken zijn gevonden -->
+          <tr>
+            <td colspan="4">Geen resultaten gevonden voor de huidige filters.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</section>
 </main>
