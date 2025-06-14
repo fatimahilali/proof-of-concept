@@ -293,6 +293,15 @@ nav {
     margin: 0;
     list-style: none;
   }
+
+
+  @media (min-width: 64rem) {
+    .hList {
+      flex-direction: row;
+      justify-content: center;
+      gap: var(--space-lg);
+    }
+ }
   
   /* Individuele filter menu items */
   .menu {
@@ -317,6 +326,13 @@ nav {
     box-shadow: 0 0.125rem var(--space-xs) rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+
+  @media (min-width: 64rem) {
+    .menu-title {
+      max-width: 12.5rem;
+      height: 2.75rem;
+    }
   }
   
   .menu-title:hover,
@@ -351,6 +367,37 @@ nav {
     border-radius: 0.875rem;
     box-shadow: 0 var(--space-base) 1.875rem rgba(0, 0, 0, 0.08);
     z-index: 10;
+  }
+
+     /* Fallback achtergrond */
+     @supports not (-webkit-backdrop-filter: blur(1rem)) {
+      .menu-dropdown {
+        background: rgba(255, 255, 255, 0.95); 
+      }
+    }
+  
+
+  @media (min-width: 64rem) {
+    .menu-dropdown {
+      min-width: 37.5rem;
+      max-height: 60vh;
+      grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
+      gap: var(--space-sm);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+}
+
+
+  @media (min-width: 64rem) {
+    .menu-dropdown::-webkit-scrollbar {
+      width: var(--space-xs);
+    }
+  
+    .menu-dropdown::-webkit-scrollbar-thumb {
+      background: rgba(0, 47, 95, 0.3);
+      border-radius: 0.25rem;
+    }
   }
   
   /* Laat child dropdown zien bij hover of focus */
