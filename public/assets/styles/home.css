@@ -171,6 +171,16 @@ nav {
   z-index: 2;
 }
 
+@media (min-width: 64rem) {
+  .search-bar {
+    padding: var(--space-base) var(--space-xl);
+    max-width: 52rem;
+    margin: -3.5rem auto var(--space-xl) auto;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 var(--space-xs) var(--space-xl) rgba(0, 0, 0, 0.03);
+    gap: var(--space-sm);
+  }
+ }
 
 /* Als de gebruiker in het vak klikt, krijgt het een lichte grijze rand */
 .search-bar:focus-within {
@@ -186,6 +196,12 @@ nav {
   gap: 0;
 }
 
+@media (min-width: 64rem) {
+  .search-bar form {
+    max-width: 43.75rem;
+  }
+}
+
 /* Zoek input veld */
 .search-bar input[type="search"] {
   flex: 1;
@@ -198,12 +214,29 @@ nav {
   outline: none;
 }
 
+@media (min-width: 64rem) {
+  .search-bar input[type="search"] {
+    min-width: 18.75rem;
+    padding: 0.8rem var(--space-base);
+    font-size: var(--font-xl);
+    border-radius: 0.4rem 0 0 0.4rem;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
+  }
+}
+
 
 /* Als de gebruiker in het zoekveld klikt */
 .search-bar input[type="search"]:focus {
   border-color: #999;
   box-shadow: 0 0 0.1875rem rgba(0, 38, 77, 0.2);
 }
+
+@media (min-width: 64rem) {
+  .search-bar input[type="search"]:focus {
+    box-shadow: 0 0 0.25rem rgba(0, 38, 77, 0.3);
+  }
+}
+
 
 /* Stijl van de tekst die in het veld staat vóór typen */
 .search-bar input::placeholder {
@@ -223,9 +256,25 @@ nav {
   transition: all 0.3s ease;
 }
 
+@media (min-width: 64rem) {
+  .search-bar button {
+    padding: 0.8rem var(--space-xl);
+    font-size: var(--font-xl);
+    border-radius: 0 0.4rem 0.4rem 0;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.2);
+  }
+}
+
 .search-bar button:hover {
   background-color: var(--accent);
   transform: scale(1.01);/* Iets groter */
+}
+
+@media (min-width: 64rem) {
+  .search-bar button:hover {
+    transform: scale(1.02);
+    transform: translate(-0.25rem, -0.25rem);
+  }
 }
 
 .search-bar button:active {
@@ -250,8 +299,7 @@ nav {
     position: relative;
     
   }
-  
-  
+
   /* Filter dropdown button */
   .menu-title {
     width: 90%;
