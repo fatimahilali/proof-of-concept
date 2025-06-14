@@ -25,6 +25,13 @@
     background-size: cover;
   }
   
+    /* Header desktop */
+
+  @media (min-width: 64rem) {
+    .background-image {
+      height: 17.5rem;
+    }
+  }  
 
 /* Overlay over de header */
 .header-overlay {
@@ -48,7 +55,16 @@
   }
 
 
-/* Navigatie sectie  */
+  @media (min-width: 64rem) {
+    .blur-wrapper {
+      width: 21.25rem;
+      height: 18.5625rem;
+      backdrop-filter: blur(1.25rem);
+      -webkit-backdrop-filter: blur(1.25rem);
+      box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
+    }
+  }
+
 .glass-box {
   position: absolute;
   top: 2%;
@@ -63,6 +79,18 @@
   border: 0.0625rem solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.125rem var(--space-xs) rgba(0, 0, 0, 0.1);
 }
+
+/* Navigatie sectie  */
+@media (min-width: 64rem) {
+  .glass-box {
+    top: -1%;
+    left: 20%;
+    width: 16.875rem;
+    height: 17.75rem;
+    box-shadow: 0 0.25rem var(--space-sm) rgba(0, 0, 0, 0.1);
+  }
+}
+
 
 nav {
   width: 90%;
@@ -441,7 +469,6 @@ nav {
 
 
 /* Verwijder standaardstijl van fieldset*/
-
 fieldset {
     border: none;
     padding: 0;
