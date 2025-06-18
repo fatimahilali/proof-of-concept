@@ -1,0 +1,119 @@
+<!-- CSS laden -->
+{% render 'partials/head.liquid' %}
+
+<!-- Resultaatteller en weergave-opties -->
+<section class="results-header">
+
+  
+<!-- Aantal getoonde boeken -->
+  <div class="results-count">
+    <picture class="resultaten-icoon">
+      <source srcset="/assets/images/book-icon.avif" type="image/avif">
+      <source srcset="/assets/images/book-icon.webp" type="image/webp">
+      <img
+        src="/assets/images/book-icon.png"
+        alt="Boek icoon"
+        width="48"
+        height="48"
+        style="width: 48px; height: auto;"
+        class="resultaten-icoon">
+    </picture>
+  </div>
+
+  <!-- Knoppen om weergave te wisselen -->
+  <div class="view-controls">
+
+    <!-- Lijstweergave -->
+    <button
+      type="button"
+      class="view-button"
+      title="Lijstweergave">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 6h2v2H3V6zm4 0h14v2H7V6zm-4 5h2v2H3v-2zm4 0h14v2H7v-2zm-4 5h2v2H3v-2zm4 0h14v2H7v-2z" />
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="view-button"
+      title="Visueel overzicht van boeken"
+      ">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
+      </svg>
+    </button>
+
+    <!-- Tabelweergave -->
+    <button
+      type="button"
+      class="view-button active"
+      title="Tabelweergave">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+      </svg>
+    </button>
+  </div>
+
+</section>
+
+
+<!-- Sectie met gevonden boektitels -->
+<section class="boek-titels">
+
+  <!-- Alleen zichtbaar voor screenreaders -->
+  <h2 class="visually-hidden">Gevonden boektitels</h2>
+
+  <div>
+    <table class="titel-tabel">
+
+      <!-- Alleen voor screenreaders -->
+      <caption class="visually-hidden">
+        Overzicht van {{ boeken.size }} boeken uit de collectie
+      </caption>
+
+      <!-- Tabelkop met kolomnamen -->
+      <thead>
+        <tr>
+          <th scope="col">Titel</th>
+          <th scope="col">Auteur</th>
+          <th scope="col">Jaar</th>
+          <th scope="col">Plaats</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% if boeken.size > 0 %}
+          <!-- Eén rij per boek -->
+          {% for boek in boeken %}
+            <tr>
+              <!-- Klikbare titel als formulier-knop -->
+              <td>
+                <form
+                  method="get"
+                  action="/"
+                  style="display:inline;">
+                  <input
+                    type="hidden"
+                    name="boek_id"
+                    value="{{ boek.id }}">
+                  <button type="submit" class="titel-link">
+                    {{ boek.titel | escape }}
+                  </button>
+                </form>
+              </td>
+              <td>{{ boek.auteur | default: "" | escape }}</td>
+              <td>{{ boek.jaar | default: "" | escape }}</td>
+              <td>{{ boek.plaats | default: "" | escape }}</td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <!-- Geen boeken gevonden -->
+          <tr>
+            <td colspan="4">Geen resultaten gevonden voor de huidige filters.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+
+    </table>
+  </div>
+</section>

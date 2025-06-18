@@ -3,7 +3,7 @@
 /*  https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator */
 /*  vorige project menu code */
 /*  https://developer.mozilla.org/en-US/docs/Web/CSS/all? */
-/*  Svg filter-chip button van old project*/
+/*  Svg filter chip button van old project*/
 
 
 * { 
@@ -140,7 +140,7 @@ nav {
 
 /* Logo styling */
 .logo-img {
-  width: 90%;
+  width: 100%;
   height: auto;
   max-height: 5rem;
   object-fit: contain;
@@ -154,8 +154,9 @@ nav {
     margin-top: 1%;
   }
  }
-  
-/* Zoekbalk sectie  */
+
+
+/* Zoekbalk sectie */
 .search-bar {
   background-color: var(--white);
   padding: 0.8rem var(--space-base);
@@ -171,119 +172,143 @@ nav {
   position: relative;
   z-index: 2;
 }
-
 @media (min-width: 64rem) {
   .search-bar {
-    padding: var(--space-base) var(--space-xl);
-    max-width: 52rem;
-    margin: -3.5rem auto var(--space-xl) auto;
-    border-radius: var(--radius-xl);
-    box-shadow: 0 var(--space-xs) var(--space-xl) rgba(0, 0, 0, 0.03);
-    gap: var(--space-sm);
+      padding: var(--space-base) var(--space-xl);
+      max-width: 52rem;
+      margin: -3.5rem auto var(--space-xl) auto;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 var(--space-xs) var(--space-xl) rgba(0, 0, 0, 0.03);
+      gap: var(--space-sm);
   }
- }
+}
 
-/* Als de gebruiker in het vak klikt, krijgt het een lichte grijze rand */
 .search-bar:focus-within {
   border-color: var(--gray-medium);
   box-shadow: none;
 }
 
-.search-bar form {
-  width: 100%;
-  margin: 0 auto;
+.search-form {
   display: flex;
-  justify-content: center;
-  gap: 0;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (min-width: 64rem) {
+  .search-form {
+      max-width: 43.75rem;
+  }
 }
 
-@media (min-width: 64rem) {
-  .search-bar form {
-    max-width: 43.75rem;
-  }
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
 }
 
 /* Zoek input veld */
-.search-bar input[type="search"] {
-  flex: 1;
-  min-width: 12.5rem;
-  padding: 0.6rem 0.8rem;
+.search-input-wrapper input[type="search"] {
+  width: 100%;
+  padding: 0.75rem 3rem 0.75rem 1rem;
   font-size: var(--font-md);
   border: 0.0625rem solid var(--gray-border);
-  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+  border-radius: var(--radius-xs);
   box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
   outline: none;
 }
-
 @media (min-width: 64rem) {
-  .search-bar input[type="search"] {
-    min-width: 18.75rem;
-    padding: 0.8rem var(--space-base);
-    font-size: var(--font-xl);
-    border-radius: 0.4rem 0 0 0.4rem;
-    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
+  .search-input-wrapper input[type="search"] {
+      min-width: 18.75rem;
+      padding: 1rem var(--space-base);
+      font-size: var(--font-xl);
+      border-radius: 0.5rem 0 0 0.5rem;
+      box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
   }
 }
 
-
-/* Als de gebruiker in het zoekveld klikt */
-.search-bar input[type="search"]:focus {
+.search-input-wrapper input[type="search"]:focus {
   border-color: #999;
   box-shadow: 0 0 0.1875rem rgba(0, 38, 77, 0.2);
 }
-
 @media (min-width: 64rem) {
-  .search-bar input[type="search"]:focus {
-    box-shadow: 0 0 0.25rem rgba(0, 38, 77, 0.3);
+  .search-input-wrapper input[type="search"]:focus {
+      box-shadow: 0 0 0.25rem rgba(0, 38, 77, 0.3);
   }
 }
 
-
-/* Stijl van de tekst die in het veld staat vóór typen */
-.search-bar input::placeholder {
+.search-input-wrapper input::placeholder {
   color: var(--text-muted);
 }
 
+/* Microfoon button */
+.micButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+}
+@media (min-width: 64rem) {
+  .micButton {
+      right: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+  }
+}
+
+.micIcon {
+  fill: var(--text-muted);
+  transition: fill 0.2s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.micButton:hover .micIcon {
+  fill: var(--primary-dark);
+}
+
 /* Zoek button */
-.search-bar button {
-  padding: 0.6rem var(--space-base);
+.search-form button[type="submit"] {
+  padding: 0.75rem 1rem;
   background-color: var(--primary-dark);
   color: var(--white);
   border: none;
-  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  border-radius: var(--radius-xs);
   font-size: var(--font-md);
   cursor: pointer;
   box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
+
 @media (min-width: 64rem) {
-  .search-bar button {
-    padding: 0.8rem var(--space-xl);
-    font-size: var(--font-xl);
-    border-radius: 0 0.4rem 0.4rem 0;
-    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.2);
+  .search-form button[type="submit"] {
+      padding: 1rem var(--space-xl);
+      font-size: var(--font-xl);
+      border-radius: 0 0.5rem 0.5rem 0;
+      box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.2);
   }
 }
 
-.search-bar button:hover {
+.search-form button[type="submit"]:hover {
   background-color: var(--accent);
-  transform: scale(1.01);/* Iets groter */
+  transform: scale(1.02);
 }
-
 @media (min-width: 64rem) {
-  .search-bar button:hover {
-    transform: scale(1.02);
-    transform: translate(-0.25rem, -0.25rem);
+  .search-form button[type="submit"]:hover {
+      transform: translate(-0.25rem, -0.25rem);
   }
 }
 
-.search-bar button:active {
+.search-form button[type="submit"]:active {
   transform: translate(0);
-  box-shadow: none;/* Terug naar originele plek */
+  box-shadow: none;
 }
-
-
 
 /*  lijst voor filters */
 .hList {
@@ -312,63 +337,104 @@ nav {
 
   /* Filter dropdown button */
   .menu-title {
-    width: 90%;
+    width: 100%;
     height: 2.75rem;
-    margin-left: var(--space-base);
-    padding: 0 var(--space-sm);
+    padding: 0 var(--space-lg) 0 var(--space-lg);
     font-size: var(--font-lg);
-    border-radius: var(--radius-sm);
-    background-color: var(--primary);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: var(--white);
     display: flex;
     align-items: center;
     justify-content: space-between;
     border: none;
-    box-shadow: 0 0.125rem var(--space-xs) rgba(0, 0, 0, 0.06);
+    box-shadow:  0 4px 12px rgba(0, 47, 95, 0.2),0 1px 3px rgba(0, 0, 0, 0.1),inset 0 1px 0 rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-
   @media (min-width: 64rem) {
     .menu-title {
       max-width: 12.5rem;
       height: 2.75rem;
     }
   }
+
+  /* Glans effect */
+.menu-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.menu-title:hover::before {
+  left: 100%;
+}
   
-  .menu-title:hover,
-  .menu-title:focus {
-    background-color: var(--primary-light);
-  }
+
+/* Hover en focus states */
+.menu-title:hover,
+.menu-title:focus {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 6px 20px rgba(0, 47, 95, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* SVG pijltje styling */
+.menu-title svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: var(--white);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.menu:hover .menu-title svg {
+  transform: rotate(180deg);
+}
+/* Tekst styling */
+.menu-title span {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.025em;
+}
   
-  .menu-title svg {
-    width: 1.125rem;
-    height: 1.125rem;
-    fill: var(--white);
-    flex-shrink: 0;
-  }
-  
-  /* Dropdown menu styling  */
-  .menu-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--bg-dropdown);
-    backdrop-filter: blur(var(--space-sm));
-    -webkit-backdrop-filter: blur(var(--space-sm));
-    padding: var(--space-lg);
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(0.625rem) scale(0.98);
-    transition: opacity 0.3s ease, transform 0.4s ease;
-    border-radius: 0.875rem;
-    box-shadow: 0 var(--space-base) 1.875rem rgba(0, 0, 0, 0.08);
-    z-index: 10;
-  }
+/* Dropdown menu styling - VERBETERD */
+.menu-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--bg-dropdown);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 
      /* Fallback achtergrond */
      @supports not (-webkit-backdrop-filter: blur(1rem)) {
@@ -376,7 +442,25 @@ nav {
         background: rgba(255, 255, 255, 0.95); 
       }
     }
-  
+
+
+/* Dropdown arrow */
+.menu-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--bg-dropdown);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
+  border-right: none;
+  transform: translateX(-50%) rotate(45deg);
+}
 
   @media (min-width: 64rem) {
     .menu-dropdown {
@@ -402,12 +486,13 @@ nav {
   }
   
   /* Laat child dropdown zien bij hover of focus */
-  .menu:hover > .menu-dropdown,
-  .menu:focus-within > .menu-dropdown {
+  .menu:hover .menu-dropdown,
+  .menu:focus-within .menu-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
   }
+  
   
   .menu-dropdown li {
     background: rgba(255, 255, 255, 0.6);
@@ -433,7 +518,7 @@ nav {
     all: unset;
   }
   
-  /*  Active filters sectie  */
+  /* Active filters sectie  */
   .active-filters {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, max-content));
@@ -444,7 +529,7 @@ nav {
   }
   
   
-  /* Individuele filter chips */
+/* Individuele filter chips */
 .filter-chip {
   display: inline-flex;
   align-items: center;
@@ -526,7 +611,7 @@ nav {
   
 /* Boek icoon */
 .resultaten-icoon {
-  display: block; /* voorkomt baseline shift */
+  display: block; 
   width: 2.8125rem;
   height: auto;
   opacity: 0.85;
@@ -697,6 +782,7 @@ nav {
     }
   }
   
+  
   /*  streep voor tabel rijen */
   .titel-tabel tbody tr:nth-child(even) td {
     background-color: var(--gray-light);
@@ -737,4 +823,30 @@ fieldset {
     border: 0;
   }
   
-  
+
+
+/* Focusstijl alleen bij toetsenbordgebruik (zoals Tab) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 0.2rem solid var(--accent, #007BFF);
+  outline-offset: 0.125rem;
+  border-radius: 0.25rem;
+}
+
+/* Hover of focus (bij toetsenbord én muis) voor extra visuele feedback */
+button:hover,
+button:focus-visible,
+a:hover,
+a:focus-visible {
+  background-color: var(--bg-hover, rgba(0, 0, 0, 0.05));
+  transition: all 0.2s ease-in-out;
+}
+
+/* Boekentitels met specifieke focusstijl (alleen bij toetsenbordnavigatie) */
+.titel-link:focus-visible {
+  outline: 0.2rem dashed var(--accent, #007BFF);
+  outline-offset: 0.2rem;
+}

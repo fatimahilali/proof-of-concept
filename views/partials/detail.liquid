@@ -1,0 +1,65 @@
+<!-- CSS  inladen -->
+{% render 'partials/head.liquid' %}
+
+<!-- Toon alleen de boekdetails als er een boek geselecteerd is -->
+{% if geselecteerdBoek %}
+
+  <!-- Overlay die bovenop de rest van de pagina ligt -->
+  <div class="boek-detail-overlay">
+
+    <!-- Container voor de details van het geselecteerde boek -->
+    <article class="boek-detail">
+
+      <!-- Sluitknop om terug te gaan naar het overzicht -->
+      <a href="/" class="close-button">✕</a>
+
+      <!-- Afbeelding van het boek vanuit de backend -->
+      <div class="book-images-container">
+        <img
+          src="{{ geselecteerdBoek.asset.large }}"
+          alt="Afbeelding van boek {{ geselecteerdBoek.titel | escape }}"
+          class="book-images"
+          loading="lazy"
+          decoding="async" />
+      </div>
+
+      <!-- Inhoud van de detailweergave -->
+      <div class="boek-detail-content">
+
+        <!-- Titel van het boek -->
+        <h2>{{ geselecteerdBoek.titel | escape }}</h2>
+
+        <!-- Lijst met boekkenmerken -->
+        <ul>
+          <li>
+            <strong>UBN:</strong>
+            {{ geselecteerdBoek.id | default: 'Onbekend' }}</li>
+          <li>
+            <strong>Auteur:</strong>
+            {{ geselecteerdBoek.auteur | default: 'Onbekend' }}</li>
+          <li>
+            <strong>Plaats van uitgave:</strong>
+            {{ geselecteerdBoek.plaats | default: 'Onbekend' }}</li>
+          <li>
+            <strong>Jaar:</strong>
+            {{ geselecteerdBoek.jaar | default: 'Onbekend' }}</li>
+          <li>
+            <strong>Redacteur:</strong>
+            {{ geselecteerdBoek.redacteur | default: 'Onbekend' }}</li>
+          <li>
+            <strong>Trefwoorden:</strong>
+            {{ geselecteerdBoek.trefwoorden | default: 'Onbekend' }}</li>
+          <li>
+            <strong>Signatuur:</strong>
+            {{ geselecteerdBoek.signatuur | default: 'Onbekend' }}</li>
+        </ul>
+
+        <!-- knop voor meer informatie -->
+        <div class="button-borders">
+          <button class="primary-button">Meer informatie</button>
+        </div>
+
+      </div>
+    </article>
+  </div>
+{% endif %}
