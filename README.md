@@ -7,12 +7,18 @@ Een makkelijke manier om boeken te zoeken in de collectie van de Embassy of the 
 ## Inhoudsopgave
 
 [label](http://localhost:8000/assets/images/art.avif)
-  -[Beschrijving](#beschrijving)
-  -[Gebruik](#gebruik)
-  -[Kenmerken](#kenmerken)
-  -[Installatie](#installatie)
-  -[Bronnen](#bronnen)
-  -[Licentie](#licentie)
+
+[Beschrijving](#beschrijving)
+  
+[Gebruik](#gebruik)
+  
+[Kenmerken](#kenmerken)
+  
+[Installatie](#installatie)
+  
+[Bronnen](#bronnen)
+  
+[Licentie](#licentie)
 
 ## Beschrijving
 
@@ -27,10 +33,11 @@ Het concept is  ontwikkeld met Liquid templates, Node.js en een externe API.
 
 Gebruikers kunnen:
 
--Zoeken op titel, auteur, plaats of jaar
--Meerdere filters tegelijk combineren
--Boekdetails bekijken in een overlay
--Wisselen tussen verschillende weergaven (lijst/tabel)
+- **Zoeken** op titel, auteur, plaats of jaar
+
+- **Boekdetails** bekijken in een overlay
+
+- **Wissele**n tussen verschillende weergaven (lijst/tabel)
 
 ## Kenmerken
 
@@ -83,8 +90,11 @@ Nu draait je project lokaal!
 ## Bronnen
 
 -Liquid templating
+
 -MDN Web Docs
+
 -FontAwesome voor SVG-iconen
+
 -Proxy API van de Embassy of the Free Mind
 -oude project code
 
