@@ -1,34 +1,92 @@
-Ontwerp en maak een data driven online concept voor een opdrachtgever
-
-De instructies voor deze opdracht staan in: [docs/INSTRUCTIONS.md](https://github.com/fdnd-task/proof-of-concept/blob/main/docs/INSTRUCTIONS.md)
 
 # Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+
+Boekzoeker  Embassy of the Free Mind  
+Een makkelijke manier om boeken te zoeken in de collectie van de Embassy of the Free Mind.
 
 ## Inhoudsopgave
 
-  * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+[label](http://localhost:8000/assets/images/art.avif)
+  -[Beschrijving](#beschrijving)
+  -[Gebruik](#gebruik)
+  -[Kenmerken](#kenmerken)
+  -[Installatie](#installatie)
+  -[Bronnen](#bronnen)
+  -[Licentie](#licentie)
 
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+
+Dit project is een interactieve webapplicatie waarmee gebruikers door de digitale boekencollectie van de Embassy of the Free Mind kunnen zoeken en filteren.
+Het concept is  ontwikkeld met Liquid templates, Node.js en een externe API.
+
+ [Live demo bekijken](https://proof-of-concept-zr3g.onrender.com)
+
+ [Bekijk de demo-video (MP4)](./public/assets/images/video.mp4)
 
 ## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+
+Gebruikers kunnen:
+
+-Zoeken op titel, auteur, plaats of jaar
+-Meerdere filters tegelijk combineren
+-Boekdetails bekijken in een overlay
+-Wisselen tussen verschillende weergaven (lijst/tabel)
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+
+- **HTML**: Semantische opbouw met ondersteuning voor screenreaders
+- **CSS**: Responsieve layout met CSS Grid en subtiele animaties  
+- **JavaScript**: Niet gebruikt  het project volgt het *progressive enhancement*-principe  
+- **Node.js + Express**: Server side rendering met Liquid  
+- **API**: Alle boekdata wordt opgehaald via een externe proxy API
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+
+Volg deze stappen om het project lokaal te draaien:
+
+### 1️⃣ Clone de repository
+
+Open je terminal en voer het volgende commando uit:
+
+```bash
+git clone https://github.com/fatimahilali/proof-of-concept.git
+cd pleasurable-ui
+
+```
+
+2️⃣ Installeer de afhankelijkheden
+
+Installeer alle benodigde packages met:
+
+```bash
+npm install
+```
+
+3️⃣ Start de applicatie
+
+```bash
+npm start
+```
+
+4️⃣ Open in je browser
+
+Ga in je browser naar:
+
+```bash
+http://localhost:8000
+```
+
+Nu draait je project lokaal!
+
+---
 
 ## Bronnen
+
+-Liquid templating
+-MDN Web Docs
+-FontAwesome voor SVG-iconen
+-Proxy API van de Embassy of the Free Mind
+-oude project code
 
 ## Licentie
 

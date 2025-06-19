@@ -1,29 +1,21 @@
-
-
 <!-- CSS laden -->
 {% render 'partials/head.liquid' %}
 
 
 <!-- Header -->
-  <header class="header"> <h1 class="visually-hidden">Embassy of the Free Mind</h1>
+<header class="header">
+  <h1 class="visually-hidden">Embassy of the Free Mind</h1>
 
   <!-- Achtergrondafbeelding -->
   <picture>
-    <!-- AVIF -->
     <source srcset="/assets/images/art.avif" type="image/avif">
-
-    <!-- WebP -->
     <source srcset="/assets/images/art.webp" type="image/webp">
 
-    <!-- PNG fallback -->
     <img
       src="/assets/images/art.png"
       alt="Decoratieve achtergrondafbeelding"
       class="background-image"
-      loading="lazy"
-      width="1920"
-      height="1080"
-      style="width: 100%; height: auto; object-fit: cover;">
+      loading="lazy">
   </picture>
 
 
